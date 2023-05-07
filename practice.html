@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="practice-js.js"></script>
-    </head>
-<body>
-<style>
-.myClass {
-  color: white;
-  background-color: DodgerBlue;
-  padding: 20px;
-  text-align: center;
-  margin: 10px;
-}
-</style>
+  <head>
+    <title>Title of the document</title>
+    <link rel="stylesheet" href="practice-css.css">
+    <!--Due to loading of script initially. Need defer type="module"-->
+    <script defer type="module" src="practice-js.js"></script>
+  </head>
+  <body>
 
-<h1>The template Element</h1>
+    <main class="page-content" id="wrap">
+      
+    </main>
 
-<p>This example fills the web page with one new div element for each item in an array.</p>
-<p>The HTML code of each div element is inside the template element.</p>
+    <template id="card-template">
+      <div class="card">
+        <div class="content">
+          <h2 class="title">Mountain View</h2>
+          <p class="copy">Check out all of these gorgeous
+            mountain trips with beautiful views of, you guessed
+            it, the mountains
+          </p>
+          <button class="btn">View Trips</button>
+        </div>
+      </div>
+      </template>
+  
 
-<p>Click the button below to display the hidden content from the template element.</p>
+<!-- 
+    <template>
+      <div class="myClass">I Like:</div>
+    </template>
 
-<button onclick="showContent()">Show hidden content</button>
-
-<template>
-  <div class="myClass">I like: </div>
-</template>
-
-
-</body>
+    <button onclick="showContent()">Hidden Content</button> -->
+    
+    
+  </body>
 </html>
