@@ -30,6 +30,7 @@ const artist={
     ]
 }
 
+//used to test the portfolioList_2
 function portfolioList(){
     const template=document.getElementById("card-template-2").content.cloneNode(true);
     template.querySelector(".card-name").innerText=artist.name;
@@ -40,6 +41,7 @@ function portfolioList(){
     document.querySelector("#portfolio-list").appendChild(template);
 }
 
+//uses loop for all elements in artist
 function portfolioList_2(){
     for (i=0;i<artist.portfolio.length;i++){
         const template=document.getElementById("card-template-2").content.cloneNode(true); //copy of card-template tag
@@ -52,3 +54,7 @@ function portfolioList_2(){
     }
     
 }
+
+//Artist.map
+
+//console.log.(template)    --child or childNodes
