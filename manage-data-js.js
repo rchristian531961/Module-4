@@ -3,27 +3,26 @@ let news=[
     {id:2,title:"News2",content:"ble"},
     {id:3,title:"News3",content:"blu"}];
 
-function readNews(){
-    const template=document.getElementById("news-template").content.clone(true);
+function readNews() {
+    const template = document.getElementById("news-template").content.cloneNode(true);
     var myId=news[0].id;
     var myTitle=news[0].title;
     var myContent=news[0].content;
     var myNews=`Current news id: ${myId}, title: ${myTitle}, content: ${myContent}`;
 
-    template.querySelector("#news").innerText=myNews;
-    template.querySelector("#news").innerText="Hello";
-    
-    document.querySelector('#news-display').appendChild(template);
+    template.querySelector('#news').innerText = myNews;
+    document.querySelector('#news-output').appendChild(template);
+    news.push(news.shift());
 }
 
-function addCard() {
-    const template = document.getElementById("card-template").content.cloneNode(true);
-    var myId=news[0].id;
-    var myTitle=news[0].title;
-    var myContent=news[0].content;
-    var myNews=`Current news id: ${myId}, title: ${myTitle}, content: ${myContent}`;
-
-    template.querySelector('.card-title').innerText = myNews;
-    document.querySelector('#card-list').appendChild(template);
+function displayNews(){
+    return setInterval(()=>{readNews()},2000);
 }
+
+function cancelDisplay(){ //Try to work?
+    clearInterval(()=>{displayNews()})
+}
+
+
+
 
