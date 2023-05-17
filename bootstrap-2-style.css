@@ -1,0 +1,39 @@
+.container{
+    display:flex;
+    width:100%;
+    justify-content: center;
+    
+}
+
+.row-container{
+    display:flex;
+    border:2px solid black;
+    width:100%;
+    padding:20px;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    flex-basis:75%;
+}
+
+@media screen and (max-width:1024px) {
+    body{background:black;}
+    .card{
+        width:33%;
+    }
+    
+}
+
+
+@media screen and (max-width:768px) {
+    body{background:blue;}
+    .card{
+        width:50%;
+    }
+    
+}
+
+@media screen and (max-width:500px){
+    body{background:green;}
+    .card{width:100%;}
+    .container{align-items: center;}
+}
