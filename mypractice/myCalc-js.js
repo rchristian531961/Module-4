@@ -25,23 +25,23 @@ function AC(){
 
 //Deletes the last entry in string and displays in html
 function CE(){
-    myPB=myPB.substring(0,x.length-1);
+    myPB=myPB.substring(0,myPB.length-1);
     displayPb();
 }
 
 //returns the operation in string
-function findOp(){
-    if (myPB.includes("+")){
+function findOp(myString){
+    if (myString.includes("+")){
         return "+";
     }
-    else if(myPB.includes("-")){
-        return "-";
+    else if(myString.includes("/")){
+        return "/";
     }
-    else if(myPB.includes("*")){
+    else if(myString.includes("*")){
         return "*";
     }
     else{
-        return "/";
+        return "-";
     }
 }
 
@@ -63,11 +63,40 @@ function mySolution(first,operation,second){
     }
 }
 
+function myArrayEqn(myString){
+    var myArray=[];
+    var i=1; 
+    var mylength=myString.length;
+    var opArray=["+","-","*","/"];
+
+    function verify(OP){
+        if (opArray.includes(OP)){
+            return true;
+        }
+        return false;
+    }
+
+    while (i<mylength){
+        if(verify(myString[i])){
+            myArray.push(myString.substring(0,i));
+            myArray.push(myString[i]);
+            myArray.push(myString.substring(i+1,myString.length));
+            return myArray;
+
+        }
+        i++;
+    }
+
+    return myArray;
+    
+}
+
 function equals(){
-    var myOperation=findOp();
-    var myArray=myPB.split(myOperation);
-    var solution=mySolution(myArray[0],myOperation,myArray[1]);
+
+    var myArray=myArrayEqn(myPB);
+    var solution=mySolution(myArray[0],myArray[1],myArray[2]);
     myPB=solution;
     displayPb();
+    
 }
 
